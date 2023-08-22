@@ -815,7 +815,7 @@ CUDABackend::executeKernel(const Device::Pointer &       device,
   std::vector<void *> argsValues(args.size());
   argsValues = args;
 
-  std::array<size_t, 3> block_size = { 8, 8, 8 };
+  std::array<size_t, 3> block_size = { 16, 16, 1 };
 
   std::array<size_t, 3> grid_size = { (global_size.data()[0] + block_size.data()[0] - 1) / block_size.data()[0],
                                       (global_size.data()[1] + block_size.data()[1] - 1) / block_size.data()[1],
